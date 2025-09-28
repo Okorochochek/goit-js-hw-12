@@ -18,7 +18,7 @@ export async function getImgByQuery(query, page) {
     } );
     return response.data;
     } catch (error) {
-        console.error("Прмилка при запиті Pixabay:", error);
+        console.error("Помилка при запиті Pixabay:", error);
     throw error; 
     }
 }
