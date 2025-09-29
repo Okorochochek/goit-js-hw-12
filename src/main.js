@@ -21,7 +21,7 @@ const perPage = 15;
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  const query = form.elements["search-text"].value.trim();
+  query = form.elements["search-text"].value.trim();
 
   if (!query) {
     iziToast.warning({
@@ -38,7 +38,7 @@ form.addEventListener("submit", async (e) => {
   
 
   try {
-    const data = await getImgByQuery(query);
+    const data = await getImgByQuery(query, page);
 
     if (data.hits.length === 0) {
       iziToast.error({
@@ -68,7 +68,7 @@ form.addEventListener("submit", async (e) => {
     });
   } finally {
     hideLoader();
-    searchForm.reset();
+    form.reset();
   }
 });
 
